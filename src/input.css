@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply overflow-x-hidden;
+    }
+}
+
+@layer components {
+    /* WordPress Menu Styles */
+    #primary-menu,
+    #mobile-primary-menu {
+        @apply list-none m-0 p-0;
+    }
+
+    /* Desktop Menu */
+    #primary-menu {
+        @apply flex items-center gap-10;
+    }
+
+    #primary-menu .menu-item {
+        @apply relative;
+    }
+
+    #primary-menu .menu-item a,
+    #primary-menu li a {
+        @apply text-white font-nav font-normal text-sm tracking-wide !important;
+        @apply hover:text-white transition-all duration-300 hover:-translate-y-0.5;
+    }
+
+    /* Mobile Menu */
+    #mobile-primary-menu .menu-item {
+        @apply w-full;
+    }
+
+    #mobile-primary-menu .menu-item a,
+    #mobile-primary-menu li a {
+        @apply block w-full text-white font-nav font-normal text-sm tracking-wide !important;
+        @apply hover:text-white p-3 hover:bg-white/10 rounded-lg transition-all;
+    }
+
+    /* Current Menu Item */
+    .current-menu-item > a {
+        @apply text-white font-nav font-bold !important;
+    }
+
+    /* Custom Components */
+    .navbar-link {
+        @apply text-white font-nav hover:text-white transition-all hover:-translate-y-0.5;
+    }
+
+    .cta-button {
+        @apply bg-primary/90 text-white/95 px-7 py-3 rounded-lg 
+               font-nav font-bold text-sm tracking-wide
+               transition-all hover:-translate-y-0.5 hover:bg-primary 
+               hover:shadow-lg border border-white/10;
+    }
+
+    /* Hero Slider */
+    .slide {
+        @apply opacity-0 invisible transition-opacity duration-500;
+    }
+
+    .slide.active {
+        @apply opacity-100 visible;
+    }
+
+    /* Slide Content Animation */
+    .slide .absolute {
+        @apply translate-y-8 opacity-0;
+        transition: transform 1s ease-out, opacity 1s ease-out;
+    }
+
+    .slide.active .absolute {
+        @apply translate-y-0 opacity-100;
+    }
+
+    /* Slide Indicators */
+    .slide-indicator {
+        @apply transition-all duration-300;
+    }
+
+    .slide-indicator.active {
+        @apply bg-white/50;
+    }
+}

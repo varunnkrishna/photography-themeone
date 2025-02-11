@@ -1,0 +1,125 @@
+/* Custom styles for Photo Portfolio theme */
+
+/* Header */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: all 0.3s ease;
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Navigation */
+.main-navigation {
+    display: flex;
+    justify-content: flex-end;
+    font-family: var(--font-primary);
+}
+
+.main-navigation ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-navigation li {
+    margin: 0 var(--spacing-md);
+}
+
+.main-navigation a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-base);
+    transition: color 0.3s ease;
+}
+
+.main-navigation a:hover {
+    color: var(--color-accent);
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+    gap: var(--spacing-md);
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    border-radius: var(--border-radius-md);
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    line-height: var(--line-height-tight);
+}
+
+h1 { font-size: var(--font-size-xxlarge); }
+h2 { font-size: var(--font-size-xlarge); }
+h3 { font-size: var(--font-size-large); }
+h4 { font-size: var(--font-size-medium); }
+
+p {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    color: var(--color-text);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        padding: var(--spacing-sm) var(--spacing-md);
+        background-color: var(--color-accent);
+        color: var(--color-background);
+        border: none;
+        border-radius: var(--border-radius-sm);
+        cursor: pointer;
+    }
+
+    .main-navigation ul {
+        display: none;
+    }
+
+    .main-navigation.toggled ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-background);
+        padding: var(--spacing-md);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .main-navigation li {
+        margin: var(--spacing-sm) 0;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(var(--spacing-md));
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
